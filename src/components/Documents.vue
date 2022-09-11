@@ -1,13 +1,13 @@
 <template>
-$END$
+  <h1>Documents</h1>
 </template>
 
 <script>
 export default {
-name: "Documents"
+  name: 'Documents'
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

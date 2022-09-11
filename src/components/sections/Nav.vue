@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper" v-show="!isMobile">
     <div class="nav-content">
       <v-card
         class="mx-auto overflow-hidden"
@@ -33,57 +33,22 @@
             </div>
           </div>
         </v-app-bar>
-
-        <v-navigation-drawer
-          v-model="drawer"
-          absolute
-          bottom
-          temporary
-        >
-          <v-list
-            nav
-            dense
-          >
-            <v-list-item-group
-              v-model="group"
-              active-class="deep-purple--text text--accent-4"
-            >
-              <v-list-item>
-                <v-list-item-title>Foo</v-list-item-title>
-              </v-list-item>
-
-              <v-list-item>
-                <v-list-item-title>Bar</v-list-item-title>
-              </v-list-item>
-
-              <v-list-item>
-                <v-list-item-title>Fizz</v-list-item-title>
-              </v-list-item>
-
-              <v-list-item>
-                <v-list-item-title>Buzz</v-list-item-title>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-navigation-drawer>
       </v-card>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'NavDrawer',
+  name: 'Nav',
   props: ['dictionary'],
   data: () => ({
-    drawer: false,
     group: null
   }),
-
-  watch: {
-    group () {
-      this.drawer = false
-    }
+  computed: {
+    ...mapGetters('data', ['isMobile'])
   }
 }
 </script>
